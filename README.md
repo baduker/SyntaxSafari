@@ -4,14 +4,18 @@ Venture with me as I embark on the wildest code journey of 2023/24 – exploring
 
 ![SyntaxSafari Banner](./ai_safari.jpeg)
 
-Note: This is my take on the [Exercism 12in23](https://exercism.org/challenges/12in23) challange.
+#### _Note: The inspiration comes from the [Exercism 12in23](https://exercism.org/challenges/12in23) challenge. And this is my take on it._
+
 ---
 
 ## 🚀 **Mission Statement**
 
 *"Why stick to one playground when there are so many to explore?"*
 
-In our daily coding life, we often stick to our comfort zones, using the same old languages. But hey, why limit ourselves? Here at `SyntaxSafari`, I'm broadening my horizons, and like any true explorer, I'm documenting my journey. Expect bugs, laughs, 'aha' moments, and more bugs!
+In our daily coding life, we often stick to our comfort zones, using the same old 
+languages. But hey, why limit ourselves? Here at `SyntaxSafari`, I'm broadening 
+my horizons, and like any true explorer, I'm documenting my journey. Expect bugs, 
+laughs, 'aha' moments, and more bugs!
 
 ---
 
@@ -49,19 +53,51 @@ In our daily coding life, we often stick to our comfort zones, using the same ol
 
 ---
 
+## 🧭 **Selecting My Next Safari Destination**
+
+Whenever I feel the call of the wild code, I use the following trusty command to 
+randomly pick my next programming language to explore:
+
+```bash
+echo "Perl Go Rust C Bash AWK Erlang Zig V Haskell Wren Java" | tr ' ' '\n' | sort | gshuf -n 1
+```
+
+This command breaks down our safari landscape into individual terrains, sorts
+them for a fair game, and then shuffles to surprise me with my next coding adventure. 
+**Where will the winds of `SyntaxSafari` take me next? Let's find out!** 🌪️🦒
+
+_Note: I'm on a macOS, so you need to have `coreutils` installed to use `gshuf`.
+If you're on Linux, you can just use `shuf` instead._
+
+```bash
+brew install coreutils
+```
+
+---
+
+## 📅 **Safari Schedule**
+
+Mark your calendars! The safari officially kicks off on October 1st.
+Get ready for an exhilarating journey through the wilds of code!
+
+---
+
 ## 📖 **Diary Logs**
 
-Every language comes with its own set of challenges, discoveries, and eureka moments. Check out my diary logs for each language to get a peek into my adventures and misadventures!
+Every language comes with its own set of challenges, discoveries, and eureka moments.
+Check out my diary logs for each language to get a peek into my adventures and misadventures!
 
-[Link to Diary Logs Directory]
+[Link to Diary Logs Directory TO BE ADDED!]
 
 ---
 
 ## 🤝 **Join the Safari!**
 
-Feel like embarking on a similar journey? Fork this repo, and let's explore together! Or just hop into the issues and discussions; any and all contributions, suggestions, and jokes are welcome. The more, the merrier!
+Feel like embarking on a similar journey? Fork this repo, and let's explore together!
+Or just hop into the issues and discussions; any and all contributions, suggestions,
+and jokes are welcome. The more, the merrier!
 
 ---
 
-👩‍💻 **Happy coding, fellow explorers!** Remember: it's not about mastering every terrain, but enjoying the journey and the view.
-
+👩💻 **Happy coding, fellow explorers!** Remember: it's not about mastering every 
+terrain, but enjoying the journey and the view.
