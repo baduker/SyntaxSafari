@@ -4,6 +4,7 @@ Venture with me as I embark on the wildest code journey of 2023/24 – exploring
 
 ![SyntaxSafari Banner](./ai_safari.jpeg)
 
+Note: This is my take on the [Exercism 12in23](https://exercism.org/challenges/12in23) challange.
 ---
 
 ## 🚀 **Mission Statement**
