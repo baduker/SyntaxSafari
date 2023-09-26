@@ -21,18 +21,18 @@ laughs, 'aha' moments, and more bugs!
 
 ## 🎯 **The Targeted Terrains**
 
-1. **Perl** - Diving into the pearls of scripting.
-2. **Go** - Gonna Go where the wind takes me!
-3. **Rust** - Making sure my code doesn't corrode.
-4. **C** - Going back to the roots. C what I did there?
-5. **Bash** - Let's make some noise!
-6. **AWK** - No, it's not awkward. Or is it?
-7. **Erlang** - Why have one process when you can have many?
-8. **V** - Aiming for speed, aiming for efficiency!
-9. **Zig** - Ziggity zag, let's not let this one lag.
-10. **Haskell** - Asking the functional questions.
-11. **Wren** - Ready to fly with this lightweight scripting bird.
-12. **Java(?)** - Brewing some classic code. Or maybe not. Still deciding.
+1. **[Perl](https://www.perl.org/)** - Diving into the pearls of scripting.
+2. **[Go](https://go.dev/)** - Gonna Go where the wind takes me!
+3. **[Rust](https://www.rust-lang.org/)** - Making sure my code doesn't corrode.
+4. **[C](https://en.wikipedia.org/wiki/C_(programming_language))** - Going back to the roots. C what I did there?
+5. **[Bash](https://www.gnu.org/software/bash/)** - Let's make some noise!
+6. **[(G)AWK](https://www.gnu.org/software/gawk/manual/gawk.html)** - No, it's not (g)awkward. Or is it?
+7. **[Erlang](https://www.erlang.org/)** - Why have one process when you can have many?
+8. **[V](https://vlang.io/)** - Aiming for speed, aiming for efficiency!
+9. **[Zig](https://ziglang.org/)** - Ziggity zag, let's not let this one lag.
+10. **[Haskell](https://www.haskell.org/)** - Asking the functional questions.
+11. **[Wren](https://wren.io/)** - Ready to fly with this lightweight scripting bird.
+12. **[Java](https://www.java.com/en/)** - Brewing some classic code. Or maybe not. Still deciding.
 
 ---
 
