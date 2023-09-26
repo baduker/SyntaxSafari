@@ -2,7 +2,7 @@
 
 Venture with me as I embark on the wildest code journey of 2023/24 – exploring 12 vast landscapes of programming languages!
 
-![SyntaxSafari Banner](place-holder-for-dir-path)
+![SyntaxSafari Banner](ai_safar.jpeg)
 
 ---
 
