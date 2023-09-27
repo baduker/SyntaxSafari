@@ -31,8 +31,17 @@ laughs, 'aha' moments, and more bugs!
 8. **[V](https://vlang.io/)** - Aiming for speed, aiming for efficiency!
 9. **[Zig](https://ziglang.org/)** - Ziggity zag, let's not let this one lag.
 10. **[Haskell](https://www.haskell.org/)** - Asking the functional questions.
-11. **[Wren](https://wren.io/)** - Ready to fly with this lightweight scripting bird.
-12. **[Java](https://www.java.com/en/)** - Brewing some classic code. Or maybe not. Still deciding.
+11. **[Wren](https://wren.io/)** - Ready to fly with this lightweight scripting bird.  
+~~12. **[Java](https://www.java.com/en/)** - Brewing some classic code. Or maybe not. Still deciding.~~
+12. **[C++]()** - The final frontier. Taking C to the next level, one plus at a time!
+
+Runners-up:
+A short-list of languages that I considered, but didn't make the cut. Maybe next time!
+
+* Java
+* JavaScript
+* TypeScript
+* Python (I already know a thing or two about this one.)
 
 ---
 
@@ -49,9 +58,7 @@ laughs, 'aha' moments, and more bugs!
 * [ ] Zig
 * [ ] Haskell
 * [ ] Wren
-* [ ] Java(?)
-
-`?` - I'm not totally convinced about tasting this particular brew. 🤷
+* [ ] C++
 
 ---
 
