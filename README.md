@@ -68,7 +68,7 @@ Whenever I feel the call of the wild code, I use the following trusty command to
 randomly pick my next programming language to explore:
 
 ```bash
-echo "Perl Go Rust C Bash AWK Erlang Zig V Haskell Wren Java" | tr ' ' '\n' | sort | gshuf -n 1
+echo "Perl Go Rust C Bash AWK Erlang Zig V Haskell Wren C++" | tr ' ' '\n' | sort | gshuf -n 1
 ```
 
 This command breaks down our safari landscape into individual terrains, sorts
