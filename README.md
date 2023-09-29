@@ -33,7 +33,7 @@ laughs, 'aha' moments, and more bugs!
 10. **[Haskell](https://www.haskell.org/)** - Asking the functional questions.
 11. **[Wren](https://wren.io/)** - Ready to fly with this lightweight scripting bird.  
 ~~12. **[Java](https://www.java.com/en/)** - Brewing some classic code. Or maybe not. Still deciding.~~
-12. **[C++]()** - The final frontier. Taking C to the next level, one plus at a time!
+12. **[C++](https://en.wikipedia.org/wiki/C++)** - The final frontier. Taking C to the next level, one plus at a time!
 
 Runners-up:
 A short-list of languages that I considered, but didn't make the cut. Maybe next time!
