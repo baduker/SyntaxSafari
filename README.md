@@ -21,7 +21,7 @@ laughs, 'aha' moments, and more bugs!
 
 ## 🎯 **The Targeted Terrains**
 
-1. **[Perl](https://www.perl.org/)** - Diving into the pearls of scripting.
+1. **[Perl](https://www.perl.org/)** - Diving into the pearls of scripting. 🚧 Work in Progress! 🚧
 2. **[Go](https://go.dev/)** - Gonna Go where the wind takes me!
 3. **[Rust](https://www.rust-lang.org/)** - Making sure my code doesn't corrode.
 4. **[C](https://en.wikipedia.org/wiki/C_(programming_language))** - Going back to the roots. C what I did there?
@@ -47,7 +47,7 @@ A short-list of languages that I considered, but didn't make the cut. Maybe next
 
 ## 🗺️ **Current Journey Status**
 
-* [ ] Perl
+* [ ] Perl - **In Progress!** 🚧
 * [ ] Go
 * [ ] Rust
 * [ ] C
@@ -68,7 +68,7 @@ Whenever I feel the call of the wild code, I use the following trusty command to
 randomly pick my next programming language to explore:
 
 ```bash
-echo "Perl Go Rust C Bash AWK Erlang Zig V Haskell Wren C++" | tr ' ' '\n' | sort | gshuf -n 1
+echo "Go Rust C Bash AWK Erlang Zig V Haskell Wren C++" | tr ' ' '\n' | sort | gshuf -n 1
 ```
 
 This command breaks down our safari landscape into individual terrains, sorts
@@ -96,7 +96,19 @@ Get ready for an exhilarating journey through the wilds of code!
 Every language comes with its own set of challenges, discoveries, and eureka moments.
 Check out my diary logs for each language to get a peek into my adventures and misadventures!
 
-[Link to Diary Logs Directory TO BE ADDED!]
+Here's how it's going to work:
+
+* I'll be keeping a diary log for each language in its respective folder.
+* Inside each folder, I'll keep the following files:
+    - `NOTES.md` - A somehow random collection of thoughts, gotchas, "aha!" moments, etc.
+    - `RESOURCES.md` - A collection of resources that I find useful.
+    - `DIARY.md` - A diary log of my journey through the language.
+    - `code/` - A folder containing all the code I write while exploring the language.
+* I'll do my best and update the diary log as I go, but I can't promise anything. I'm not a robot, you know. 🤖
+* For each language, I'm hoping to come up with a small, not-so-trivial project that encapsulates the core
+strengths or unique features of that language. I'd like to see this as a practical touchstone for your learning. 
+* All other resources, like books, tutorials, links, visuals etc. will be listed in the `RESOURCES.md` file.
+* For anything that doesn't belong in the above files, I'll drop it in the `Miscellaneous/` folder.
 
 ---
 
