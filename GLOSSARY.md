@@ -7,21 +7,31 @@
 [S](#s), [T](#t), [U](#u), [V](#v), [W](#w), [X](#x), [Y](#y), [Z](#z)
 
 ### **A**
-*A - Placeholder for terms starting with 'A'*
+
+#### AWK
+- Is a domain-specific language designed for text processing and typically used
+as a data extraction and reporting tool. 
 
 ### **B**
 *B - Placeholder for terms starting with 'B'*
 
 ### **C**
-*C - Placeholder for terms starting with 'C'*
+
+#### **CGI**
+- CGI stands for Common Gateway Interface. It is a standard protocol for web servers to execute programs that execute like console applications (also known as command-line interface (CLI) programs) running on a server that generates web pages dynamically. This allows the server to include dynamic content on the web page, such as user interactions, form inputs, or real-time data.
+
 
 ### **D**
-*D - Placeholder for terms starting with 'D'*
+
+#### Dynamic-language
+- A programming language that is dynamically typed. This means that the type of
+variable is checked during run-time, as opposed to compile-time.
 
 #### Domain-specific-language (DSL)
 
 - A programming language that is specialized to a particular application domain.
-For example, SQL is a DSL for querying relational databases.
+For example, SQL is a DSL for querying relational databases. On the other hand,
+Perl is a [general-purpose-language](#general-purpose-language-gpl).
 
 ### **E**
 *E - Placeholder for terms starting with 'E'*
