@@ -28,3 +28,9 @@ shared by all the languages, and it takes some amount of dexterity to keep
 typing _Miscellaneous_ correctly.
 
 What I didn't do today was actually compile a selection of resources.
+
+### **Day 3: October 3rd, 2023**
+
+Compiled a list of resources. See [RESOURCES](./RESOURCES.md).
+
+Now, I need to go through the list and pick a couple of resources to start with.
