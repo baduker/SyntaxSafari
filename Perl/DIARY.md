@@ -34,3 +34,21 @@ What I didn't do today was actually compile a selection of resources.
 Compiled a list of resources. See [RESOURCES](./RESOURCES.md).
 
 Now, I need to go through the list and pick a couple of resources to start with.
+
+### **Day 4: October 4th, 2023**
+
+I've decided to start with the official Perl docs. So far, I've been reading
+mostly what's in the [Perldoc](https://perldoc.perl.org/perl#Overview) section.
+
+Turns out, writing about a programming langauge can be engaging and fun - that's
+how I can summarize my experience with the official Perl docs so far. 
+
+So far, I've covered:
+
+- [`perlintro`](https://perldoc.perl.org/perlintro) Perl introduction for beginners
+- [`perldsc`](https://perldoc.perl.org/perldsc) Perl data structures intro
+- [`perllol`](https://perldoc.perl.org/perllol) Perl data structures: arrays of arrays
+- [`perlreftut`](https://perldoc.perl.org/perlreftut) Perl references short introduction
+- [`perlstyle`](https://perldoc.perl.org/perlstyle) Perl style guide
+
+I'd like to use these docs as the base for a code-like introduction to Perl.
