@@ -52,3 +52,10 @@ So far, I've covered:
 - [`perlstyle`](https://perldoc.perl.org/perlstyle) Perl style guide
 
 I'd like to use these docs as the base for a code-like introduction to Perl.
+
+### **Day 5: October 5th, 2023**
+
+Sadly, I didn't get to do much today. I did, however, manage to read a couple of
+pages from the "Lama Book" and the [perldoc](https://perldoc.perl.org/perl#Overview)
+
+I'll try to catch up tomorrow.
