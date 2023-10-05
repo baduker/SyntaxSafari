@@ -26,3 +26,49 @@ There's nothing hilarious about the code itself, but what I found interesting is
 the footnote at the bottom of the page:
 _Yours Eclectically, The Self-Appointed Master Librarians (OOK!) of the CPAN._
 These Perl people sure have a sense of humor!
+
+### Installation
+
+Here's how I did it:
+
+```bash
+brew install perl
+```
+
+Then, I ran `perl --version` to make sure everything was installed correctly.
+
+I usually do most of my work in a JetBrains IDE, so I also had to configure
+Perl there. I'm using the perl version that I installed with Homebrew, so I
+just had to point the IDE to the right location.
+
+```bash
+which perl
+```
+
+In my case, the output was `/opt/homebrew/bin/perl`.
+
+Also, it's recommended to have `perlcritic` installed.
+
+```bash
+cpan Perl::Critic
+```
+
+However, neither my shell nor my IDE picks up the `perlcritic` binary
+automatically. In order to fix this, I had to come up with a workaround:
+
+```bash
+perl -V:installsitebin
+```
+
+And then, using the output, use the current perl binary that's installed on my
+macOS.
+
+```bash
+export PATH=$PATH:/opt/homebrew/Cellar/perl/<YOUR_VERSION_OF_PERL>/bin/
+```
+
+This, fixed it for me.
+
+Here's how you can do it, if your not on macOS:
+
+[Get Perl on your machine](https://www.perl.org/get.html)
