@@ -59,3 +59,32 @@ Sadly, I didn't get to do much today. I did, however, manage to read a couple of
 pages from the "Lama Book" and the [perldoc](https://perldoc.perl.org/perl#Overview)
 
 I'll try to catch up tomorrow.
+
+### **Day 6: October 6th, 2023**
+
+I was mostly going (still!) through the [perldoc](https://perldoc.perl.org/perl#Overview)
+and the "Lama Book".
+
+### **Day 7: October 7th, 2023**
+
+No work done. :(
+
+### **Day 8: October 8th, 2023**
+
+Got a draft of my 101-style introduction to Perl based on what I've leared from
+the [perldoc](https://perldoc.perl.org/perl#Overview) and the "Lama Book".
+
+### **Day 9: October 9th, 2023**
+
+Wrote the first part of the 101-style introduction to Perl. See [Perl/101](./101/README.md).
+I covered the following topics:
+- Perl short intro
+- Pragmas
+- Comments
+- Variables
+- Scalars
+- Arrays
+- Hashes
+- References
+
+More to come tomorrow!
