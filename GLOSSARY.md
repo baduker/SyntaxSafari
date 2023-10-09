@@ -93,7 +93,11 @@ requiring them previously to have been compiled into a machine language program.
 *R - Placeholder for terms starting with 'R'*
 
 ### **S**
-*S - Placeholder for terms starting with 'S'*
+
+#### Sigil
+- A sigil is a symbol attached to a variable name that indicates the variable's
+data type. For example, in Perl, the `$` sigil indicates a scalar variable, the
+`@` sigil indicates an array variable, and the `%` sigil indicates a hash.
 
 ### **T**
 *T - Placeholder for terms starting with 'T'*
