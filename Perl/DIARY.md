@@ -88,3 +88,15 @@ I covered the following topics:
 - References
 
 More to come tomorrow!
+
+### **Day 10: October 10th, 2023**
+
+Wrote the second part of the 101-style introduction to Perl. See [Perl/101](./101/README.md).
+I added:
+- Variable scope
+- Conditional statements
+- Loops
+- Operators
+
+Tomorrow, I'd like to cover subroutines and touch on regular expressions and maybe
+some `I/O`.
