@@ -27,7 +27,7 @@ Oddly enough, I've seen scripts with the `.perl` extension, too.
 Alternatively, you can run your script like this, providing that you've added
 the shebang line at the top of your script:
 
-```perl5
+```perl
 #!/usr/bin/env perl
 ```
 
@@ -49,7 +49,7 @@ if you want to make sure your code is _robust_, you can use the following lines:
 By the way, this is considered a best practice, and you'll see it in most Perl
 scripts.
 
-```perl5
+```perl
 #!/usr/bin/env perl
 use strict;
 use warnings;
@@ -61,7 +61,7 @@ potential problems.
 If you're lazy _and_ have Perl `5.35` or higher, you can kill two declarations
 with one line:
 
-```perl5
+```perl
 use v5.35;
 ```
 This turns on both `strict` and `warnings` by default.
@@ -74,18 +74,18 @@ your code more readable (and maintainable).
 
 Every statement in Perl ends with a semicolon (`;`).
 
-```perl5
+```perl
 print "Hello, World!";
 ```
 Unless, it's a comment:
 
-```perl5
+```perl
 # This is just a comment in Perl. It's fine to end it with a period, though.
 ```
 
 Perl doesn't care about whitespace, but you should.
 
-```perl5
+```perl
 print
     'Whitespace is important in Perl, 
     but not to Perl.';
@@ -97,7 +97,7 @@ quotes don't.
 
 Also, _whitespace_ is _relevant_ when you use double quotes. :)
 
-```perl5
+```perl
 my $name = 'traveler';
 print "Hello there, $name!\n"; # This works fine
 print 'Hello there, $name!\n'; # This prints the literal string: $name\n
@@ -105,7 +105,7 @@ print 'Hello there, $name!\n'; # This prints the literal string: $name\n
 
 You can skip quotes when you want to print numbers:
 
-```perl5
+```perl
 print 462;
 ```
 
@@ -122,7 +122,7 @@ thing. That's it._
 (both integers and floating-point numbers). Perl will figure out the type for
 you and convert between types as needed.
 
-```perl5
+```perl
 # You need to use the `my` keyword to declare a variable.
 # Otherwise, it's a global variable, and that's not a good thing.
 # Also, the `strict` pragma will complain about it.
@@ -140,7 +140,7 @@ lot in Perl code.
 I won't cover them in this 101, as that'd be a bit too much of a bite. But feel
 free to check them out in the [perlvar](https://perldoc.perl.org/perlvar) docs.
 
-```perl5
+```perl
 # An example of $_ in action
 
 while (<>) { # There's another special variable here: <>; but that's a story for another time.
@@ -153,7 +153,7 @@ while (<>) { # There's another special variable here: <>; but that's a story for
 
 `Arrays` are ordered lists of scalars. They're declared with the `@` [sigil](../../../GLOSSARY.md#sigil).
 
-```perl5
+```perl
 my @super_heros = ("Batman", "Superman", "Wonderwoman");
 my @top_secret_numbers = (1, 2, 3, 4, 5);
 my @some_random_stuff = ("forty six &two", 3.14, "the answer to life, the universe, and everything", 69);
@@ -201,7 +201,7 @@ my @answers_backwards = reverse @some_random_stuff; # Reverses the array
 A `hash` is an unordered collection of key/value pairs. Sort of like Python's
 dictionary or JavaScript's object.
 
-```perl5
+```perl
 # Note the % sigil and the use of whitespace for readability.
 my %super_heroes = (
     "Batman" => "Bruce Wayne",
@@ -231,7 +231,7 @@ hash of hashes, or an array of arrays of hashes, or... you get the idea. :D
 I guess it's a good moment to talk about references. A reference is a scalar
 value that points to another value. Sort of like a pointer in C, but not quite.
 
-```perl5
+```perl
 my $book = "The Hitchhiker's Guide to the Galaxy";
 my $book_ref = \$book; # This is a reference to the $book variable
 
@@ -242,7 +242,7 @@ print $$book_ref; # Prints "The Hitchhiker's Guide to the Galaxy"
 
 You can also create references to arrays and hashes:
 
-```perl5
+```perl
 my @books = ("Catch-22", "1984", "The Catcher in the Rye");
 my $books_ref = \@books; # This is a reference to the @books array
 
@@ -304,7 +304,7 @@ of making sure you don't accidentally create global variables.
 Now, let's talk about the scope of variables. In Perl, there are three types of
 scopes: `lexical`, `package`, and `file`.
 
-```perl5
+```perl
 # Lexical scope
 my $lexical_variable = "I'm a lexical variable.";
 my $condition = 1;
@@ -322,7 +322,7 @@ As for the `package` and `file` scopes, I'll cover them as I go.
 Perl offers a range of conditional statements, including `if`, `unless`, `while`, and
 `until`. They're pretty much self-explanatory. But let's look at some examples.
 
-```perl5
+```perl
 if ($condition) {
     ...
 } elsif ($another_condition) {
@@ -334,7 +334,7 @@ if ($condition) {
 The _negated_ version of `if` is `unless`. It's a bit more readable in some cases. Most
 notably, when you feel like using `if (!condition)`. 
 
-```perl5
+```perl
 unless ($condition) {
     ...
 }
@@ -342,7 +342,7 @@ unless ($condition) {
 Note that you need the braces (`{}`) even if you have only one statement in the block. But...
 you can _inline_ the conditional statement and make it more _Perlish_.
 
-```perl5
+```perl
 my $say_hi = 1;
 print "Hi there!\n" if $say_hi; # Prints "Hi there!" if $say_hi is true
 ```
@@ -351,7 +351,7 @@ Let's talk `loops`, shall we?
 
 The `for` loop is pretty much the same as in the good old `C`.
 
-```perl5
+```perl
 for (my $i = 0; $i < 10; $i++) {
     ...
 }
@@ -359,7 +359,7 @@ for (my $i = 0; $i < 10; $i++) {
 But don't worry, if you're not a fan of the C-style `for` loop, Perl has you covered.
 Say hello to `foreach`, a friendly and easy way to scan through an `array` or a `hash`.
 
-```perl5
+```perl
 my @array = (1, 2, 3, 4, 5);
 for my $element (@array) {
     print $element;
@@ -379,14 +379,14 @@ for my $key (keys %hash) {
 
 The `while` loop is pretty straightforward, too.
 
-```perl5
+```perl
 while ($condition) {
     ...
 }
 ```
 To flip the condition, use `until`.
 
-```perl5
+```perl
 until ($condition) {
     ...
 }
@@ -398,7 +398,7 @@ I'm going to run through some of the most common operators in Perl.
 
 ##### **Arithmetic operators**
 
-```perl5
+```perl
 + # Addition
 - # Subtraction
 * # Multiplication
@@ -409,7 +409,7 @@ It's a bit different from other languages. In Perl, the `/` operator always retu
 a floating-point number. If you want to get an integer, you need to use the `int`
 function.
 
-```perl5
+```perl
 my $result = 6 / 2; # $result is 3.0
 my $integer_result = int(6 / 2); # $integer_result is 3
 ```
@@ -470,7 +470,7 @@ x # string repetition (e.g. "a" x 3 returns "aaa")
 ```
 As in `C`, you can combine assignment with arithmetic operators.
 
-```perl5
+```perl
 my $x = 1;
 my $s = "Hello";
 
