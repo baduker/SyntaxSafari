@@ -1,5 +1,26 @@
 ## **Perl 101**
 
+### **Table of Contents**
+
+- [What is Perl?](#what-is-perl)
+- [101 Code Snippets](#101-code-snippets)
+    - [Running Perl programs](#running-perl-programs)
+    - [Stay Safe](#stay-safe)
+    - [Basic Syntax](#basic-syntax)
+    - [Variables](#variables)
+        - [Scalars](#scalars)
+        - [Arrays](#arrays)
+        - [Hashes](#hashes)
+    - [References](#references)
+    - [Variable scope](#variable-scope)
+    - [Conditionals and loops](#conditionals-and-loops)
+    - [Built-in operators](#built-in-operators)
+        - [Arithmetic operators](#arithmetic-operators)
+        - [Numeric comparison operators](#numeric-comparison-operators)
+        - [String comparison operators](#string-comparison-operators)
+        - [Logical operators](#logical-operators)
+    - [Miscellaneous operators](#miscellaneous-operators)
+
 ### **What is Perl?**
 
 Perl is a versatile programming language initially designed for text manipulation,
