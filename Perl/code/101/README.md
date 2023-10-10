@@ -289,3 +289,193 @@ The Books of Spells for complex data structures are as follows:
 - [perllol](https://perldoc.perl.org/perllol) Perl data structures: arrays of arrays
 
 Yes, there's an official doc in Perl that has `lol` in its name. :)
+
+#### **Variable scope**
+
+You might have noticed that I've been using the `my` keyword when declaring
+variables. This is a good practice, and you should do it, too. It makes your
+code more robust and easier to maintain.
+
+However, you can also declare variables without `my`. But this creates a global
+variable, and that's considered a bad programming practice. You should avoid
+using global variables as much as possible. Using the `strict` pragma is one way
+of making sure you don't accidentally create global variables.
+
+Now, let's talk about the scope of variables. In Perl, there are three types of
+scopes: `lexical`, `package`, and `file`.
+
+```perl5
+# Lexical scope
+my $lexical_variable = "I'm a lexical variable.";
+my $condition = 1;
+if ($condition) {
+    my $another_lexical_variable = "I'm another lexical variable.";
+    print $lexical_variable; # Prints "I'm a lexical variable."
+    print $another_lexical_variable; # Prints "I'm another lexical variable."
+}
+print $lexical_variable; # Prints "I'm a lexical variable."
+print $another_lexical_variable; # This won't work, because $another_lexical_variable is out of scope.
+```
+As for the `package` and `file` scopes, I'll cover them as I go.
+
+#### **Conditionals and loops**
+Perl offers a range of conditional statements, including `if`, `unless`, `while`, and
+`until`. They're pretty much self-explanatory. But let's look at some examples.
+
+```perl5
+if ($condition) {
+    ...
+} elsif ($another_condition) {
+    ...
+} else {
+    ...
+}
+```
+The _negated_ version of `if` is `unless`. It's a bit more readable in some cases. Most
+notably, when you feel like using `if (!condition)`. 
+
+```perl5
+unless ($condition) {
+    ...
+}
+```
+Note that you need the braces (`{}`) even if you have only one statement in the block. But...
+you can _inline_ the conditional statement and make it more _Perlish_.
+
+```perl5
+my $say_hi = 1;
+print "Hi there!\n" if $say_hi; # Prints "Hi there!" if $say_hi is true
+```
+
+Let's talk `loops`, shall we?
+
+The `for` loop is pretty much the same as in the good old `C`.
+
+```perl5
+for (my $i = 0; $i < 10; $i++) {
+    ...
+}
+```
+But don't worry, if you're not a fan of the C-style `for` loop, Perl has you covered.
+Say hello to `foreach`, a friendly and easy way to scan through an `array` or a `hash`.
+
+```perl5
+my @array = (1, 2, 3, 4, 5);
+for my $element (@array) {
+    print $element;
+}
+
+# Same thing, but with a hash
+my %hash = (
+    "one" => 1,
+    "two" => 2,
+    "three" => 3,
+);
+for my $key (keys %hash) {
+    print $key;
+    print "And here's the value: $hash{$key}"
+}
+```
+
+The `while` loop is pretty straightforward, too.
+
+```perl5
+while ($condition) {
+    ...
+}
+```
+To flip the condition, use `until`.
+
+```perl5
+until ($condition) {
+    ...
+}
+```
+
+#### **Built-in operators**
+
+I'm going to run through some of the most common operators in Perl.
+
+##### **Arithmetic operators**
+
+```perl5
++ # Addition
+- # Subtraction
+* # Multiplication
+/ # Division
+```
+Nothing surprising here. But there's one thing you should know about division in Perl.
+It's a bit different from other languages. In Perl, the `/` operator always returns
+a floating-point number. If you want to get an integer, you need to use the `int`
+function.
+
+```perl5
+my $result = 6 / 2; # $result is 3.0
+my $integer_result = int(6 / 2); # $integer_result is 3
+```
+
+##### **Numeric comparison operators**
+
+```
+== # Equality
+!= # Inequality
+<  # Less than
+>  # Greater than
+<= # Less than or equal to
+>= # Greater than or equal to
+```
+Again, nothing surprising here. But you should be aware that comparing floating-point
+numbers can be tricky due to their imprecise nature. You want to compare two
+floating-point numbers and know if they’re equal when carried out to a certain
+number of decimal places.
+
+I'm not going to cover this, but here's a piece from the
+[Perl Cookbook](https://www.oreilly.com/library/view/perl-cookbook/1565922433/ch02s03.html)
+
+##### **String comparison operators**
+
+```
+eq # Equality
+ne # Inequality
+lt # Less than
+gt # Greater than
+le # Less than or equal to
+ge # Greater than or equal to
+```
+So, now, why are there two sets of comparison operators? Well, becasue there's no
+special variable types in Perl. Everything is a scalar. Also, Perl needs to _know_
+what you're comparing (or sorting). Is it a number or a string? That's why you
+need to use different operators for different types.
+
+##### **Logical operators**
+
+Can't have a programming language without logical operators, right?
+
+```
+&& # Logical AND
+|| # Logical OR
+!  # Logical NOT
+```
+That's it. Nothing fancy here.
+
+#### **Miscellaneous operators**
+
+There are few more operators you should know about.
+
+```
+= # assignment
+. # string concatenation
+x # string repetition (e.g. "a" x 3 returns "aaa")
+.. # range operator (e.g. 1..10 returns 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+```
+As in `C`, you can combine assignment with arithmetic operators.
+
+```perl5
+my $x = 1;
+my $s = "Hello";
+
+$x += 1; # $x is now 2
+$x -= 1; # $x is 1 again
+
+$s .= " there!"; # $s is now "Hello there!"
+```
