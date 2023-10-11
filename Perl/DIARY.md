@@ -100,3 +100,11 @@ I added:
 
 Tomorrow, I'd like to cover subroutines and touch on regular expressions and maybe
 some `I/O`.
+
+### **Day 11: October 11th, 2023**
+
+I guess I can say I'm done with the 101 thingy. Manged to round it up with
+subroutines, regular expressions, and `I/O`. See [Perl/101](./101/README.md).
+
+It's time to get my hands dirty with some actual code. I don't know what I'm
+going to start with yet, but I'll figure it out tomorrow.
