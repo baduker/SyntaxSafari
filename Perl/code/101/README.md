@@ -20,10 +20,14 @@
         - [String comparison operators](#string-comparison-operators)
         - [Logical operators](#logical-operators)
     - [Miscellaneous operators](#miscellaneous-operators)
+    - [Subroutines](#subroutines)
+    - [File I/O](#file-io)
+    - [Regular expressions](#regular-expressions)
 
 ### **What is Perl?**
 
-Perl is a versatile programming language initially designed for text manipulation,
+Perl is a versatile programming language initially designed for text 
+manipulation,
 but now used for various tasks like system administration, web development,
 network programming, GUI development, and more.
 
@@ -31,7 +35,8 @@ It's practical, easy to use, and supports both procedural and
 object-oriented programming. Perl has robust built-in support for text
 processing and a vast collection of third-party modules.
 
-Different people use Perl in different ways, making it a language worth exploring.
+Different people use Perl in different ways, making it a language worth 
+exploring.
 
 _The language is intended to be practical (easy to use, efficient, complete)
 rather than beautiful (tiny, elegant, minimal)._
@@ -164,7 +169,8 @@ free to check them out in the [perlvar](https://perldoc.perl.org/perlvar) docs.
 ```perl
 # An example of $_ in action
 
-while (<>) { # There's another special variable here: <>; but that's a story for another time.
+while (<>) { # There's another special variable here: <>; but that's a story 
+for another time.
     chomp;
     print "It was $_ that I saw!\n";
 }
@@ -172,12 +178,14 @@ while (<>) { # There's another special variable here: <>; but that's a story for
 
 ##### **Arrays**
 
-`Arrays` are ordered lists of scalars. They're declared with the `@` [sigil](../../../GLOSSARY.md#sigil).
+`Arrays` are ordered lists of scalars. They're declared with the `@` 
+[sigil](../../../GLOSSARY.md#sigil).
 
 ```perl
 my @super_heros = ("Batman", "Superman", "Wonderwoman");
 my @top_secret_numbers = (1, 2, 3, 4, 5);
-my @some_random_stuff = ("forty six &two", 3.14, "the answer to life, the universe, and everything", 69);
+my @some_random_stuff = ("forty six &two", 3.14, "the answer to life, the 
+universe, and everything", 69);
 
 # Arrays can be empty, too.
 my @empty_array = ();
@@ -188,8 +196,10 @@ my @another_empty_array;
 # You can access individual elements of an array by using the index.
 # Note that the index starts at 0.
 print $super_heros[0]; # Prints "Batman"
-print $some_random_stuff[2]; # Prints "the answer to life, the universe, and everything"
-print $top_secret_numbers[-1]; # Prints 5 (negative indices start from the end of the array)
+print $some_random_stuff[2]; # Prints "the answer to life, the universe, and 
+everything"
+print $top_secret_numbers[-1]; # Prints 5 (negative indices start from the end 
+of the array)
 
 # Get the length of an array
 print scalar @super_heros; # Prints 3
@@ -234,10 +244,12 @@ my %super_heroes = (
 print $super_heroes{"Wonderwoman"}; # Prints "Diana Prince"
 
 # To get the list of keys, use the keys function
-my @the_real_names = keys %super_heroes; # Returns ("Batman", "Superman", "Wonderwoman")
+my @the_real_names = keys %super_heroes; # Returns ("Batman", "Superman", 
+"Wonderwoman")
 
 # To get the list of values, use the values function
-my @the_super_heroes = values %super_heroes; # Returns ("Bruce Wayne", "Clark Kent", "Diana Prince")
+my @the_super_heroes = values %super_heroes; # Returns ("Bruce Wayne", "Clark 
+Kent", "Diana Prince")
 ```
 
 There's a lot more on `scalars`, `arrays`, and `hashes` in the
@@ -273,7 +285,8 @@ my %titles_and_authors = (
     "The Catcher in the Rye" => "J. D. Salinger",
 );
 
-my $titles_and_authors_ref = \%titles_and_authors; # This is a reference to the %titles_and_authors hash
+my $titles_and_authors_ref = \%titles_and_authors; # This is a reference to the 
+%titles_and_authors hash
 
 # Now, some funky Perl magic. You can use the arrow operator to dereference.
 print $titles_and_authors_ref->{"Catch-22"}; # Prints "Joseph Heller"
@@ -304,10 +317,12 @@ print $books{"Catch-22"}{"author"}; # Prints "Joseph Heller"
 ```
 
 The Books of Spells for complex data structures are as follows:
-- [perlreftut](https://perldoc.perl.org/perlreftut) Perl references short introduction
+- [perlreftut](https://perldoc.perl.org/perlreftut) Perl references short 
+introduction
 - [perlref](https://perldoc.perl.org/perlref) Perl references
 - [perldsc](https://perldoc.perl.org/perldsc) Perl data structures intro
-- [perllol](https://perldoc.perl.org/perllol) Perl data structures: arrays of arrays
+- [perllol](https://perldoc.perl.org/perllol) Perl data structures: arrays of 
+arrays
 
 Yes, there's an official doc in Perl that has `lol` in its name. :)
 
@@ -335,12 +350,14 @@ if ($condition) {
     print $another_lexical_variable; # Prints "I'm another lexical variable."
 }
 print $lexical_variable; # Prints "I'm a lexical variable."
-print $another_lexical_variable; # This won't work, because $another_lexical_variable is out of scope.
+print $another_lexical_variable; # This won't work, because 
+$another_lexical_variable is out of scope.
 ```
 As for the `package` and `file` scopes, I'll cover them as I go.
 
 #### **Conditionals and loops**
-Perl offers a range of conditional statements, including `if`, `unless`, `while`, and
+Perl offers a range of conditional statements, including `if`, `unless`, 
+`while`, and
 `until`. They're pretty much self-explanatory. But let's look at some examples.
 
 ```perl
@@ -352,7 +369,8 @@ if ($condition) {
     ...
 }
 ```
-The _negated_ version of `if` is `unless`. It's a bit more readable in some cases. Most
+The _negated_ version of `if` is `unless`. It's a bit more readable in some 
+cases. Most
 notably, when you feel like using `if (!condition)`. 
 
 ```perl
@@ -360,7 +378,8 @@ unless ($condition) {
     ...
 }
 ```
-Note that you need the braces (`{}`) even if you have only one statement in the block. But...
+Note that you need the braces (`{}`) even if you have only one statement in the 
+block. But...
 you can _inline_ the conditional statement and make it more _Perlish_.
 
 ```perl
@@ -377,8 +396,10 @@ for (my $i = 0; $i < 10; $i++) {
     ...
 }
 ```
-But don't worry, if you're not a fan of the C-style `for` loop, Perl has you covered.
-Say hello to `foreach`, a friendly and easy way to scan through an `array` or a `hash`.
+But don't worry, if you're not a fan of the C-style `for` loop, Perl has you 
+covered.
+Say hello to `foreach`, a friendly and easy way to scan through an `array` or a 
+`hash`.
 
 ```perl
 my @array = (1, 2, 3, 4, 5);
@@ -425,9 +446,12 @@ I'm going to run through some of the most common operators in Perl.
 * # Multiplication
 / # Division
 ```
-Nothing surprising here. But there's one thing you should know about division in Perl.
-It's a bit different from other languages. In Perl, the `/` operator always returns
-a floating-point number. If you want to get an integer, you need to use the `int`
+Nothing surprising here. But there's one thing you should know about division 
+in Perl.
+It's a bit different from other languages. In Perl, the `/` operator always 
+returns
+a floating-point number. If you want to get an integer, you need to use the 
+`int`
 function.
 
 ```perl
@@ -445,13 +469,16 @@ my $integer_result = int(6 / 2); # $integer_result is 3
 <= # Less than or equal to
 >= # Greater than or equal to
 ```
-Again, nothing surprising here. But you should be aware that comparing floating-point
+Again, nothing surprising here. But you should be aware that comparing 
+floating-point
 numbers can be tricky due to their imprecise nature. You want to compare two
 floating-point numbers and know if they’re equal when carried out to a certain
 number of decimal places.
 
 I'm not going to cover this, but here's a piece from the
-[Perl Cookbook](https://www.oreilly.com/library/view/perl-cookbook/1565922433/ch02s03.html)
+[Perl 
+Cookbook](https://www.oreilly.com/library/view/perl-cookbook/1565922433/ch02s03.
+html)
 
 ##### **String comparison operators**
 
@@ -463,8 +490,10 @@ gt # Greater than
 le # Less than or equal to
 ge # Greater than or equal to
 ```
-So, now, why are there two sets of comparison operators? Well, becasue there's no
-special variable types in Perl. Everything is a scalar. Also, Perl needs to _know_
+So, now, why are there two sets of comparison operators? Well, becasue there's 
+no
+special variable types in Perl. Everything is a scalar. Also, Perl needs to 
+_know_
 what you're comparing (or sorting). Is it a number or a string? That's why you
 need to use different operators for different types.
 
@@ -500,3 +529,196 @@ $x -= 1; # $x is 1 again
 
 $s .= " there!"; # $s is now "Hello there!"
 ```
+
+#### **Subroutines**
+
+Subroutines are Perl's way of defining functions. They're declared with the 
+`sub`
+keyword. Writing subroutines is easy.
+
+```perl
+sub logger {
+    my $message = shift;
+    print "[$message]\n";
+}
+```
+
+We just made ourselves a _very_ simple logger. Let's use it.
+
+```perl
+# Note: you can use the logger sub just like any other built-in function.
+logger("Hello, World!"); # Prints "[Hello, World!]"
+```
+
+So, now you're probably wondering what's that `shift` thing. Well, it's a 
+special
+function that removes the first element of an array and returns it. If you don't
+provide an array, it'll use `@_`, which is a special array that contains the
+arguments passed to the subroutine.
+
+In our little logger example, we're using `shift` to _shift_ the first item off
+the list of arguments and assign it to the `$message` variable.
+
+Subroutines can return values, too. Let's make a simple calculator.
+
+```perl
+sub add {
+    my ($x, $y) = @_;
+    return $x + $y;
+}
+
+# Then just use it like this:
+my $result = add(1, 2);
+print $result;
+```
+
+That's it for this 101. For more information on subroutines, check out the
+official docs: [perlsub](https://perldoc.perl.org/perlsub).
+
+#### **File I/O**
+Let's do some simple file I/O. We'll start with reading a file.
+
+```perl
+# First, we need to open the file. The open function returns a filehandle.
+# Note that we're using the lexical scope here.
+my $filehandle;
+my $filename = "some_file.txt";
+open($filehandle, "<", $filename) or die "Can't open $filename: $!";
+```
+
+The `open` function takes three arguments: the filehandle, the mode, and the
+filename. The mode can be `<` for reading, `>` for writing, or `>>` for 
+appending.
+
+We can read from an open filehandle using the `<>` (diamond) operator. In scalar
+context it reads a single line, and in list context it reads all the lines.
+
+```perl
+my $line = <$filehandle>; # Reads a single line
+my @lines = <$filehandle>; # Reads all the lines
+```
+
+Reading in a whole file at once is called _slurping_. It's a bit of a Perl
+quirk, but it's useful in some cases. Other times, _slurping_ an entire file
+can be a memory hog.
+
+Most times, though, using the `<>` and a `while` loop is the way to go.
+
+```perl
+while (my $line = <$filehandle>) {
+    # Do something with $line
+}
+```
+
+This way, we're processing the file line by line, which is a lot more efficient.
+
+When you're done reading from a file, you need to close it. Just between you and
+me, if you forget to close a file, Perl will clean up after you.
+
+```perl
+close($filehandle) or die "Can't close $filename: $!";
+```
+
+#### **Regular expressions**
+
+Perl's regular expression support is _legendary_. It's one of the things that
+makes Perl so powerful and versatile. However, we're going to just gently touch
+on the subject in this 101.
+
+Perl's `regex` are both broad and deep. It's covered in more depth in the
+following official docs:
+
+- [perlrequick](https://perldoc.perl.org/perlrequick) Perl regular expressions 
+quick start
+- [perlretut](https://perldoc.perl.org/perlretut) Perl regular expressions 
+tutorial
+
+For now, let's just look at some basic examples. By the way, this is mostly
+adapted from the [perlintro](https://perldoc.perl.org/perlintro) docs.
+
+#### Simple matching:
+
+```perl
+if (/the thing I'm looking for/) { # True if $_ contains the thing
+    print "Found it!\n";
+}
+
+if ($world =~ /the thing I'm looking for/) { # True if $world contains the thing
+    print "Found it!\n";
+}
+```
+
+The difference here between the matching operator `//` and the binding operator
+`=~` is that the matching operator uses `$_` by default, while the binding
+operator uses the variable on the left-hand side.
+
+#### Simple substitution:
+
+Same case here with the `//` and `=~` operators.
+
+```perl
+s/this/that/; # Replaces the first occurrence of "this" with "that" in $_
+$foo =~ s/this/that/; # Replaces the first occurrence of "this" with "that" in 
+$foo
+$bar =~ s/this/that/g; # Replaces all occurrences of "this" with "that" in $bar
+```
+
+#### More complex stuff:
+
+You don't just have to match on fixed strings. In fact, you can match on just 
+about anything you could dream of by using more complex regular expressions. 
+These are documented at great length in perlre, but for the meantime, here's a 
+quick cheat sheet:
+
+```
+.                   a single character
+\s                  a whitespace character (space, tab, newline,
+                    ...)
+\S                  non-whitespace character
+\d                  a digit (0-9)
+\D                  a non-digit
+\w                  a word character (a-z, A-Z, 0-9, _)
+\W                  a non-word character
+[aeiou]             matches a single character in the given set
+[^aeiou]            matches a single character outside the given
+                    set
+(foo|bar|baz)       matches any of the alternatives specified
+```
+
+```
+^                   start of string
+$                   end of string
+Quantifiers can be used to specify how many of the previous thing you want to 
+match on, where "thing" means either a literal character, one of the 
+metacharacters listed above, or a group of characters or metacharacters in 
+parentheses.
+
+*                   zero or more of the previous thing
++                   one or more of the previous thing
+?                   zero or one of the previous thing
+{3}                 matches exactly 3 of the previous thing
+{3,6}               matches between 3 and 6 of the previous thing
+{3,}                matches 3 or more of the previous thing
+Some brief examples:
+
+/^\d+/              string starts with one or more digits
+/^$/                nothing in the string (start and end are
+                    adjacent)
+/(\d\s){3}/         three digits, each followed by a whitespace
+                    character (eg "3 4 5 ")
+/(a.)+/             matches a string in which every odd-numbered
+                    letter is a (eg "abacadaf")
+```
+
+```
+# This loop reads from STDIN, and prints non-blank lines:
+while (<>) {
+    next if /^$/;
+    print;
+}
+```
+
+#### **That's it for now :D**
+
+Well, if you've managed to get this far, I hope you've learned something new
+about Perl. I know I did. :)
