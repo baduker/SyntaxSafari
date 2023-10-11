@@ -179,7 +179,7 @@ for another time.
 ##### **Arrays**
 
 `Arrays` are ordered lists of scalars. They're declared with the `@` 
-[sigil](../../../GLOSSARY.md#sigil).
+[sigil](../../GLOSSARY.md#sigil).
 
 ```perl
 my @super_heros = ("Batman", "Superman", "Wonderwoman");
