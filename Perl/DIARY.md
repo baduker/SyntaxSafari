@@ -108,3 +108,25 @@ subroutines, regular expressions, and `I/O`. See [Perl/101](./101/README.md).
 
 It's time to get my hands dirty with some actual code. I don't know what I'm
 going to start with yet, but I'll figure it out tomorrow.
+
+### **Day 12 - 20: October 12th - 20th, 2023**
+
+Well, if there's anything that I _really_ learned so far it has nothing to do
+with codding. Turns out that it's pretty hard to keep up with a daily schedule
+when you have a full-time job, a side project, you contribute to open-source,
+and have a family trip spanning over a week. Who would've thought?
+
+Anyway, I'm back on track now. I've decided to start with the
+[Exercism](https://exercism.org/tracks/perl5) and for the next couple of days
+I'll be working on the exercises there. I'll post my solutions in the code
+section of this repo.
+
+Also, there's a slight change when it comes to the schedule. I won't start with
+a new language every month. Instead, I'll be spending a month on each language.
+
+That way, I'll have more time to explore each language, and I'll be able to
+focus on other things as well. I guess I was a bit too ambitious with the
+original plan.
+
+It's hard to do all the stuff _and_ learn and write about a new language every
+day on top of that. I'm not a robot, you know. 🤖
