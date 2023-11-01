@@ -130,3 +130,12 @@ original plan.
 
 It's hard to do all the stuff _and_ learn and write about a new language every
 day on top of that. I'm not a robot, you know. 🤖
+
+### **Day 21: November 1st, 2023**
+
+I am failing miserably at this. There has been so much happening in the last
+couple of weeks that I didn't have time to do anything. I'm going to try to
+catch up in the next couple of days.
+
+But out of curiosity, I've decided to check what next language I might be
+learning. And it looks like it's going to be the good, old *C*!
