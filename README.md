@@ -3,7 +3,7 @@
 Venture with me as I embark on the wildest code journey of 2023/24 – exploring 
 12 vast landscapes of programming languages!
 
-![SyntaxSafari Banner](./ai_safari.jpeg "Yes, it's AI-generated.")
+![SyntaxSafari Banner](./ai_safari.png "Yes, it's AI-generated.")
 
 #### _Note: The inspiration comes from the [Exercism 12in23](https://exercism.org/challenges/12in23) challenge. And this is my take on it._
 
