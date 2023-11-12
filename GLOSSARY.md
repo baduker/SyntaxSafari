@@ -18,7 +18,11 @@ as a data extraction and reporting tool.
 ### **C**
 
 #### **CGI**
-- CGI stands for Common Gateway Interface. It is a standard protocol for web servers to execute programs that execute like console applications (also known as command-line interface (CLI) programs) running on a server that generates web pages dynamically. This allows the server to include dynamic content on the web page, such as user interactions, form inputs, or real-time data.
+- CGI stands for Common Gateway Interface. It is a standard protocol for web 
+servers to execute programs that execute like console applications (also known 
+as command-line interface (CLI) programs) running on a server that generates 
+web pages dynamically. This allows the server to include dynamic content on the 
+web page, such as user interactions, form inputs, or real-time data.
 
 
 ### **D**
