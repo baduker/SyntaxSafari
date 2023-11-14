@@ -218,3 +218,17 @@ become an indispensable tool in my software arsenal.
 Until next time!
 
 Hopefully it's not going to be in another two weeks. 🤞
+
+### **Day 23: November 14th, 2023**
+
+Well, it wasn't two weeks, but it was close. I've been busy with other stuff and
+honestly, I had no idea this project is going to be so hard to keep up with.
+
+I mean, I knew it's going to be hard, but I didn't expect it to be _this_ hard.
+
+I guess I was kinda naive to think that I can do this every day.
+
+A full-time job, a side project, a family, two dogs, and A LOT of other stuff
+that just happens inbetween. It's hard to keep up with everything.
+
+And turns out, this place here becomes more of a diary than a learning log.
