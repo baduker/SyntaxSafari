@@ -82,8 +82,7 @@ to
 randomly pick my next programming language to explore:
 
 ```bash
-echo "Go Rust C Bash AWK Erlang Zig V Haskell Wren C++" | tr ' ' '\n' | sort | 
-gshuf -n 1
+echo "Go Rust C Bash AWK Erlang Zig V Haskell Wren C++" | tr ' ' '\n' | sort | gshuf -n 1
 ```
 
 This command breaks down our safari landscape into individual terrains, sorts
