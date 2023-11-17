@@ -25,6 +25,9 @@ simplicity, and extensibility.
 - [Perl on Stackoverflow](https://stackoverflow.com/questions/tagged/perl?tab=Votes) -
 A list of the most popular Perl questions on Stackoverflow. A trove of Perl
 programming knowledge.
+- [Perl Begin](https://perl-begin.org/) - An ancient-looking website with an
+impressive collection of Perl wisdom and humor. I'm not sure how up-to-date it
+is, but it's definitely worth checking out. It's a nice blast from the past.
 
 ### Quirks and Oddities
 
