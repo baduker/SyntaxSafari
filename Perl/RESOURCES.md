@@ -14,6 +14,17 @@ I'll use it as a reference as I go.
 - [Perl on Exercism](https://exercism.org/tracks/perl5) - I've used Exercism for
 other languages, mostly Python and Go, and I really like it. It's a great way to
 get the feel for a language through a series of small, self-contained exercises.
+- [Perl 
+One-Liners](https://learnbyexample.github.io/learn_perl_oneliners/cover.html) -
+Here's a nice little book on Perl one-liners, I've stumbled upon. Looks like a
+pretty good source of inspiration if you're dealing with text processing.
+- [Why Perl?](https://two-wrongs.com/why-perl.html) - A blog article in which
+the author explains why they use Perl for quick prototyping and scripting. They 
+list some advantages of Perl, such as ubiquity, scalability, longevity, 
+simplicity, and extensibility.
+- [Perl on Stackoverflow](https://stackoverflow.com/questions/tagged/perl?tab=Votes) -
+A list of the most popular Perl questions on Stackoverflow. A trove of Perl
+programming knowledge.
 
 ### Quirks and Oddities
 
@@ -21,7 +32,8 @@ get the feel for a language through a series of small, self-contained exercises.
 [Perl magazine](https://www.perl-magazin.de/) called `$foo`. It was discontinued
 in 2014 though. I've never heard of a programming language having its own
 periodical. I wonder if there are any others out there.
-- The source code for Perl is available [here](https://www.cpan.org/src/README.html).
+- The source code for Perl is available 
+[here](https://www.cpan.org/src/README.html).
 There's nothing hilarious about the code itself, but what I found interesting is
 the footnote at the bottom of the page:
 _Yours Eclectically, The Self-Appointed Master Librarians (OOK!) of the CPAN._
