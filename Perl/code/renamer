@@ -17,7 +17,7 @@ use version;
 
 binmode STDOUT, ':encoding(utf8)';
 
-our $VERSION = qv('1.6.0');
+our $VERSION = qv('1.6.1');
 our $TOTAL_FILES = 0;
 our @TABLE_LOAD;
 
@@ -92,6 +92,79 @@ sub process_files {
     return 0;
 }
 
+sub print_table {
+    my ($payload) = @_;
+    my @cols = ("Old Name","New Name");
+    my $sep = \'│';
+
+    my $major_sep = \'║';
+    my $tb = Text::Table->new( $sep, " Number ", $major_sep,
+        ( map { +( ( ref($_) ? $_ : " $_ " ), $sep ) } @cols ) );
+
+    my $num_cols = @cols;
+
+    $tb->load( @{$payload} );
+
+    my $make_rule = sub {
+        my ($args) = @_;
+
+        my $left      = $args->{left};
+        my $right     = $args->{right};
+        my $main_left = $args->{main_left};
+        my $middle    = $args->{middle};
+
+        return $tb->rule(
+            sub {
+                my ( $index, $len ) = @_;
+
+                return ( '─' x $len );
+            },
+            sub {
+                my ( $index, $len ) = @_;
+
+                my $char = (
+                      ( $index == 0 )             ? $left
+                    : ( $index == 1 )             ? $main_left
+                    : ( $index == $num_cols + 1 ) ? $right
+                    :                               $middle
+                );
+
+                return $char x $len;
+            },
+        );
+    };
+
+    my $start_rule = $make_rule->(
+        {
+            left      => '┌',
+            main_left => '╥',
+            right     => '┐',
+            middle    => '┬',
+        }
+    );
+
+    my $mid_rule = $make_rule->(
+        {
+            left      => '├',
+            main_left => '╫',
+            right     => '┤',
+            middle    => '┼',
+        }
+    );
+
+    my $end_rule = $make_rule->(
+        {
+            left      => '└',
+            main_left => '╨',
+            right     => '┘',
+            middle    => '┴',
+        }
+    );
+
+    print $start_rule, $tb->title,
+        ( map { $mid_rule, $_, } $tb->body() ), $end_rule;
+}
+
 sub main {
     my $replace_char = '_'; # Default replacement character
     my $extension = 'pdf';  # Default file extension
@@ -144,75 +217,7 @@ sub main {
         if ($TOTAL_FILES == 0) {
             print "No files found with extension: $extension\n";
         } else {
-            my @cols = ("Old Name","New Name");
-            my $sep = \'│';
-
-            my $major_sep = \'║';
-            my $tb = Text::Table->new( $sep, " Number ", $major_sep,
-                ( map { +( ( ref($_) ? $_ : " $_ " ), $sep ) } @cols ) );
-
-            my $num_cols = @cols;
-
-            $tb->load( @TABLE_LOAD );
-
-            my $make_rule = sub {
-                my ($args) = @_;
-
-                my $left      = $args->{left};
-                my $right     = $args->{right};
-                my $main_left = $args->{main_left};
-                my $middle    = $args->{middle};
-
-                return $tb->rule(
-                    sub {
-                        my ( $index, $len ) = @_;
-
-                        return ( '─' x $len );
-                    },
-                    sub {
-                        my ( $index, $len ) = @_;
-
-                        my $char = (
-                              ( $index == 0 )             ? $left
-                            : ( $index == 1 )             ? $main_left
-                            : ( $index == $num_cols + 1 ) ? $right
-                            :                               $middle
-                        );
-
-                        return $char x $len;
-                    },
-                );
-            };
-
-            my $start_rule = $make_rule->(
-                {
-                    left      => '┌',
-                    main_left => '╥',
-                    right     => '┐',
-                    middle    => '┬',
-                }
-            );
-
-            my $mid_rule = $make_rule->(
-                {
-                    left      => '├',
-                    main_left => '╫',
-                    right     => '┤',
-                    middle    => '┼',
-                }
-            );
-
-            my $end_rule = $make_rule->(
-                {
-                    left      => '└',
-                    main_left => '╨',
-                    right     => '┘',
-                    middle    => '┴',
-                }
-            );
-
-            print $start_rule, $tb->title,
-                ( map { $mid_rule, $_, } $tb->body() ), $end_rule;
+            print_table(\@TABLE_LOAD);
             print "Total files renamed: $TOTAL_FILES\n";
         }
     } else {
@@ -297,13 +302,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-=cut
-
-=begin comment
-
-Function sanitize_file_name sanitizes the file name by removing spaces, commas,
-dashes and dots except the dot before the file extension.
-=end comment
 
 =cut
