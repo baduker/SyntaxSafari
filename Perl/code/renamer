@@ -1,18 +1,26 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 
 use strict;
 use warnings;
+use utf8;
+use Config;
+use English qw(-no_match_vars);
+
 use Pod::Usage;
 use Getopt::Long qw(GetOptions);
 use File::Find   qw(find);
 use File::Copy;
-use English qw(-no_match_vars);
 use Path::Tiny;
-use Config;
+use Text::Table ();
+
 use version;
 
-our $VERSION = qv('1.5.6');
+binmode STDOUT, ':encoding(utf8)';
+
+our $VERSION = qv('1.6.0');
 our $TOTAL_FILES = 0;
+our @TABLE_LOAD;
+
 
 sub sanitize_file_name {
     my ($file_name, $replace_char) = @_;
@@ -54,9 +62,8 @@ sub rename_file {
 
     if ($old_file_name ne $new_file_name) {
         rename $old_name, $new_name;
-        print "File renamed: '$old_file_name' -> '$new_file_name'\n"
-            or die "Cannot print to STDOUT\n";
         $TOTAL_FILES++;
+        push @TABLE_LOAD, [$TOTAL_FILES, $old_file_name, $new_file_name];
     }
     return 0;
 }
@@ -137,6 +144,75 @@ sub main {
         if ($TOTAL_FILES == 0) {
             print "No files found with extension: $extension\n";
         } else {
+            my @cols = ("Old Name","New Name");
+            my $sep = \'│';
+
+            my $major_sep = \'║';
+            my $tb = Text::Table->new( $sep, " Number ", $major_sep,
+                ( map { +( ( ref($_) ? $_ : " $_ " ), $sep ) } @cols ) );
+
+            my $num_cols = @cols;
+
+            $tb->load( @TABLE_LOAD );
+
+            my $make_rule = sub {
+                my ($args) = @_;
+
+                my $left      = $args->{left};
+                my $right     = $args->{right};
+                my $main_left = $args->{main_left};
+                my $middle    = $args->{middle};
+
+                return $tb->rule(
+                    sub {
+                        my ( $index, $len ) = @_;
+
+                        return ( '─' x $len );
+                    },
+                    sub {
+                        my ( $index, $len ) = @_;
+
+                        my $char = (
+                              ( $index == 0 )             ? $left
+                            : ( $index == 1 )             ? $main_left
+                            : ( $index == $num_cols + 1 ) ? $right
+                            :                               $middle
+                        );
+
+                        return $char x $len;
+                    },
+                );
+            };
+
+            my $start_rule = $make_rule->(
+                {
+                    left      => '┌',
+                    main_left => '╥',
+                    right     => '┐',
+                    middle    => '┬',
+                }
+            );
+
+            my $mid_rule = $make_rule->(
+                {
+                    left      => '├',
+                    main_left => '╫',
+                    right     => '┤',
+                    middle    => '┼',
+                }
+            );
+
+            my $end_rule = $make_rule->(
+                {
+                    left      => '└',
+                    main_left => '╨',
+                    right     => '┘',
+                    middle    => '┴',
+                }
+            );
+
+            print $start_rule, $tb->title,
+                ( map { $mid_rule, $_, } $tb->body() ), $end_rule;
             print "Total files renamed: $TOTAL_FILES\n";
         }
     } else {
@@ -174,6 +250,13 @@ Check EXAMPLES section for more information on how to use the tool.
 =head1 USAGE
 
     renamer [options] TARGET
+
+=head1 INSTALLATION
+
+Install the following dependencies:
+
+    cpan Path::Tiny
+    cpan Text::Table
 
 =head1 EXAMPLES
 
