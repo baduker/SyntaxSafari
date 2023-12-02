@@ -232,3 +232,14 @@ A full-time job, a side project, a family, two dogs, and A LOT of other stuff
 that just happens inbetween. It's hard to keep up with everything.
 
 And turns out, this place here becomes more of a diary than a learning log.
+
+### **Day 24: December 2nd, 2023**
+
+I totally suck at this. I just realized that it's been more than three months
+since I've started this project, and I've only done a couple days of Perl.
+
+I guess I need to rethink my approach. I'm going to try to do a couple of days
+of Perl every month, and then move on to the next language.
+
+Or maybe I should just give up on this project altogether. I don't know.
+
