@@ -6,8 +6,7 @@ strategies and ideas:
 It could be understanding basic syntax, building a specific type of 
 application, or mastering advanced concepts.
 - **Project-Based Learning**: Choose a project that interests you for each 
-language. This could be a web scraper in Python, a data visualization tool in 
-R, or a simple game in JavaScript.
+language.
 
 ### 2. Explore Real-World Applications
 - **Industry Use Cases**: Research how each language is used in the industry. 
