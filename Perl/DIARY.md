@@ -243,3 +243,32 @@ of Perl every month, and then move on to the next language.
 
 Or maybe I should just give up on this project altogether. I don't know.
 
+### **Day 25: December 5th, 2023**
+
+Alright, I've done some thinking, and I've decided to give this project another
+shot. I'm going to try to do language specific stuff every month, and then
+write about it here.
+
+In order to make it happen I need to do a couple of things:
+
+1. I need to make sure that I have enough time to do this. I'm going to try to
+do at least 30 minutes of language specific stuff every day. I know it's not
+much, but it's better than nothing.
+2. To make the whole thing more manageable, I'm going to try to focus on setting
+specific goals for each language, keeping in mind why a given language was
+created in the first place. I'm going to try to focus on the strengths of each
+language, and try to build something that showcases those strengths.
+3. I need to make sure that I have enough time to write about it. I'm going to
+try to write at least every other day and see how this goes.
+
+So, for example, with Perl I'm going to build a text processing tool or script
+that automates a common task, showcasing Perl's strength in regex and string
+manipulation.
+
+I already have the [renamer](./code/renamer) script, which I'm pretty happy about.
+I could use what I've learned so far to improve it and make it more robust.
+Also, I'd like to write one more that I'm going to call *foldo* - a Perl twist
+on the classic coreutil *fold*. But much simpler and with less features.
+
+So, yeah, that's the plan. Let's see how it goes.
+
