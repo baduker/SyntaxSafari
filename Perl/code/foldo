@@ -1,0 +1,213 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+use utf8;
+use Config;
+use English qw(-no_match_vars);
+
+use Pod::Usage;
+use File::Copy;
+use Getopt::Long qw(GetOptions);
+
+use version; our $VERSION = qv('0.0.1');
+
+# Default column width
+our $DEFAULT_COLUMN_WIDTH = 80;
+
+
+sub main {
+    my $help;
+
+    my $backup = 0;
+    my $file_to_fold = undef;
+
+    GetOptions(
+        'width=w' => \$DEFAULT_COLUMN_WIDTH,
+        'backup=b' => \$backup,
+        'help' => \$help,
+        'version' => sub {
+            print "foldo v$VERSION\n";
+            exit;
+        }
+    ) or die "Usage: $0 --file <file> [--help] [--version]\n";
+
+    if (defined $help) {
+        print "Usage: $EXECUTABLE_NAME [options] FILE\n";
+        print "Options:\n";
+        print "  --help           Print this help message\n";
+        print "  --version        Print the version number\n";
+        exit;
+    }
+
+    if (@ARGV != 1) {
+        print "Error: no file specified\n";
+        die "Usage: $EXECUTABLE_NAME [options] FILE\n";
+    }
+
+    $file_to_fold = $ARGV[0];
+
+    if ($backup) {
+        backup_file();
+    }
+    my $long_lines = read_file_lines();
+    fold_lines($long_lines, $DEFAULT_COLUMN_WIDTH);
+}
+
+sub backup_file {
+    my $backup_file = "$file_to_fold.bak";
+
+    if (-e $backup_file) {
+        die "Error: backup file $backup_file already exists\n";
+    }
+
+    copy($file_to_fold, $backup_file) or die "Error: could not backup file $file_to_fold\n";
+}
+
+sub read_file_lines {
+    open(my $fh, '<', $file_to_fold) or die "Error: could not open file $file_to_fold\n";
+
+    my @lines = <$fh>;
+
+    close($fh);
+
+    return @lines;
+}
+
+sub fold_lines {
+    my ( $orig_line, $width, $join ) = @_;
+
+    my $conf;
+    if ( defined $width && ref($width) eq 'HASH' ) {
+        $conf  = $width;
+        $width = undef;
+    }
+    $width = defined $width ? abs( int($width) ) || 78 : 78;
+
+    if ( !defined $conf && defined $join && ref($join) eq 'HASH' ) {
+        $conf = $join;
+        $join = undef;
+    }
+    $conf ||= {};
+    $join = $conf->{'join'} if exists $conf->{'join'};
+
+    my $soft_hyphen_threshold = 0;
+    if ( exists $conf->{'soft_hyphen_threshold'} ) {
+
+        # Zero-but-true means default to ~20% of width
+        # Since this should be a number this works, if it could be a string then this would not work
+        if ( $conf->{'soft_hyphen_threshold'} && $conf->{'soft_hyphen_threshold'} == 0 ) {
+            $soft_hyphen_threshold = int( $width / 5 );
+        }
+        else {
+            $soft_hyphen_threshold = abs( int( $conf->{'soft_hyphen_threshold'} ) );
+        }
+
+        if ( $soft_hyphen_threshold < 3 || $soft_hyphen_threshold > $width ) {
+            $soft_hyphen_threshold = $width;
+        }
+    }
+
+    my $turn_back_into_byte_string = String::UnicodeUTF8::is_unicode($orig_line) ? 0 : 1;
+    my $line = String::UnicodeUTF8::get_unicode($orig_line);
+
+    # split(/\n/, "foo\nbar\nbaz\n") is (foo, bar, baz) not (foo, bar, baz, '')
+    # split(/\n/, "foo\nbar\nbaz\n\n\n") is (foo, bar, baz) not (foo, bar, baz, '', '', '')
+    # So we need to count the trailing newlines in order to add them back at the end.
+    #
+    # This trailing newline count is a corner case where `perldoc -q count` did not do the trick.
+    # If you have a better/faster way I'm all ears!
+    #
+    # Removing them (i.e. s///) is safe since the split() will essentially be removing them anyway.
+    my $trailing_newlines_count = 0;
+    while ( $line =~ s/(?:\015\012|\012|\015)\z//g ) {
+        $trailing_newlines_count++;
+    }
+
+    # It was entirely newlines
+    if ( $line eq '' ) {
+        return defined $join ? $join : "\n" x $trailing_newlines_count;
+    }
+
+    my @aggregate_tokens;
+    my $part;    # buffer
+
+  LINE:
+    for $part ( split( /(?:\015\012|\012|\015)/, $line ) ) {
+      PARSE_PART:
+        {
+            if ( $part eq '' ) {
+                push @aggregate_tokens, $part;
+                next LINE;
+            }
+
+            my @tokens = ( $part =~ m/.{1,$width}/g );
+
+            # unpack(A) lops off trailing spaces on each chunk, if there's a better way I'm all ears!
+            # my @tokens = unpack( "A$width" x ( CORE::length($part) / $width ) . ' A*', $part );
+
+            my $n;    # buffer
+            my $last_index = $#tokens;
+            for $n ( 0 .. $last_index ) {
+                if ( $n < $last_index ) {
+                    if ( $tokens[$n] =~ m/[^ \t\f]\z/ && $tokens[ $n + 1 ] =~ m/\A[^ \t\f]/ ) {
+
+                        if ($soft_hyphen_threshold) {
+                            my ($end_chunk) = $tokens[$n] =~ m/([^ \t\f]+)\z/;
+                            my ($beg_chunk) = $tokens[ $n + 1 ] =~ m/\A([^ \t\f]+)/;
+
+                            if ( CORE::length("$end_chunk$beg_chunk") <= $soft_hyphen_threshold ) {
+                                $tokens[$n] =~ s/[^ \t\f]+\z//;
+                                $tokens[ $n + 1 ] =~ s/\A[^ \t\f]+//;
+                                push @aggregate_tokens, @tokens[ 0 .. $n ];
+                                $part = join( '', $end_chunk, $beg_chunk, @tokens[ $n + 1 .. $last_index ] );
+                                goto PARSE_PART;
+                            }
+                            else {
+                                goto SOFT_HYPHEN;
+                            }
+                        }
+                        else {
+                          SOFT_HYPHEN:
+                            my $last_chr = CORE::substr( $tokens[$n], -2, 1 ) =~ m/[ \t\f]/ ? CORE::substr( $tokens[$n], -1, 1, " " ) : CORE::substr( $tokens[$n], -1, 1, "-" );
+
+                            if ($n) {
+                                push @aggregate_tokens, @tokens[ 0 .. $n - 1 ], $tokens[$n];
+                            }
+                            else {
+                                push @aggregate_tokens, $tokens[$n];
+                            }
+
+                            $part = join( '', $last_chr, @tokens[ $n + 1 .. $last_index ] );
+                            goto PARSE_PART;
+                        }
+                    }
+                }
+            }
+
+            # unpack will return an empty token as last token if the 2nd to last token
+            # was exactly $width long, so we need to pop the last element if it's empty
+            if ( $tokens[-1] eq '' ) {
+                pop @tokens;
+            }
+
+            push @aggregate_tokens, @tokens;
+        }
+    }
+
+    if ($turn_back_into_byte_string) {
+        for ( 0 .. $#aggregate_tokens ) {
+            $aggregate_tokens[$_] = String::UnicodeUTF8::get_utf8( $aggregate_tokens[$_] );
+        }
+    }
+
+    if ($trailing_newlines_count) {
+        for ( 1 .. $trailing_newlines_count ) {
+            push @aggregate_tokens, '';
+        }
+    }
+
+    return join( defined $join ? $join : "\n", @aggregate_tokens );
+}
+
+main();
