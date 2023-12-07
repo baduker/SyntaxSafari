@@ -272,3 +272,13 @@ on the classic coreutil *fold*. But much simpler and with less features.
 
 So, yeah, that's the plan. Let's see how it goes.
 
+### **Day 26: December 7th, 2023**
+
+As I've said, I'm trying out the objective-based approach and I came up with
+a (non-working) draft of a folding tool called, surprisingly, [foldo](./code/foldo).
+
+I'll be working on it in the next couple of days.
+
+Basically, I want to write a tool that folds text to a given width. It should
+be able to read from a file or STDIN, and write to a file or STDOUT. It'd be
+great if it could take a flag or two to specify the width and the output file.
