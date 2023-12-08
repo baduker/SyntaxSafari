@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # This script 'folds' lines in a Markdown file at a given column width.
 # By default, it folds at 80 characters.
 
-DEFAULT_COLUMN_WIDTH=80
+readonly DEFAULT_COLUMN_WIDTH=80
 
 #######################################
 # script's usage
@@ -20,46 +20,51 @@ usage() {
   exit 1
 }
 
-# Check for command line options
-while getopts ":w:b" opt; do
-  case $opt in
-    w)
-      column_width="$OPTARG"
-      ;;
-    b)
-      backup=true
-      ;;
-    *)
-      usage
-      ;;
-  esac
-done
+# The core logic of the script
+function main() {
+	# Check for command line options
+	while getopts ":w:b" opt; do
+		case $opt in
+			w)
+				column_width="$OPTARG"
+				;;
+			b)
+				backup=true
+				;;
+			*)
+				usage
+				;;
+		esac
+	done
 
-# Shift off the options and operands
-shift $((OPTIND - 1))
+	# Shift off the options and operands
+	shift $((OPTIND - 1))
 
-# If no file is specified, display usage and exit
-if [ $# -eq 0 ]; then
-  usage
-fi
+	# If no file is specified, display usage and exit
+	if [ $# -eq 0 ]; then
+		usage
+	fi
 
-# Check if file exists
-if [ ! -f "$1" ]; then
-  echo "Error: File '$1' not found."
-  exit 1
-fi
+	# Check if file exists
+	if [ ! -f "$1" ]; then
+		echo "Error: File '$1' not found."
+		exit 1
+	fi
 
-# If column width wasn't specified, use default
-column_width=${column_width:-$DEFAULT_COLUMN_WIDTH}
+	# If column width wasn't specified, use default
+	column_width=${column_width:-$DEFAULT_COLUMN_WIDTH}
 
-# Backup the original file if requested
-if [ "$backup" = true ]; then
-  cp "$1" "$1.bak"
-fi
+	# Backup the original file if requested
+	if [ "$backup" = true ]; then
+		cp "$1" "$1.bak"
+	fi
 
-# Fold the file
-fold -s -w "$column_width" "$1" >"$1.tmp" && mv "$1.tmp" "$1"
+	# Fold the file
+	fold -s -w "$column_width" "$1" >"$1.tmp" && mv "$1.tmp" "$1"
 
-echo "File '$1' folded at column width $column_width."
+	echo "File '$1' folded at column width $column_width."
 
-exit 0
+	exit 0
+}
+
+main "$@"
