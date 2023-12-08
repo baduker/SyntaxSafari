@@ -265,7 +265,8 @@ So, for example, with Perl I'm going to build a text processing tool or script
 that automates a common task, showcasing Perl's strength in regex and string
 manipulation.
 
-I already have the [renamer](./code/renamer) script, which I'm pretty happy about.
+I already have the [renamer](./code/renamer) script, which I'm pretty happy 
+about.
 I could use what I've learned so far to improve it and make it more robust.
 Also, I'd like to write one more that I'm going to call *foldo* - a Perl twist
 on the classic coreutil *fold*. But much simpler and with less features.
@@ -275,7 +276,8 @@ So, yeah, that's the plan. Let's see how it goes.
 ### **Day 26: December 7th, 2023**
 
 As I've said, I'm trying out the objective-based approach and I came up with
-a (non-working) draft of a folding tool called, surprisingly, [foldo](./code/foldo).
+a (non-working) draft of a folding tool called, surprisingly, 
+[foldo](./code/foldo).
 
 I'll be working on it in the next couple of days.
 
